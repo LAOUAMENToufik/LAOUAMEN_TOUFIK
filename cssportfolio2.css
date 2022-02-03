@@ -1,0 +1,594 @@
+html, body{
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+}
+/* pour que tout les eléments se créent sans marges*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	}
+/* Le cadre, tailles  des pages */
+.projets, .competences, .aproposdemoi {
+	height: 100vh;
+	width: 100vw;
+}
+.aproposdemoi, .projets, .competences {
+	background: url("nv\ fond\ gris.jpg");
+	background-size: cover;
+}
+/* les titres des pages*/
+.titre {
+	padding: 1%;
+	text-decoration: underline;
+}
+/* les boutton pour les 3 rubriques */
+.btnrubrique, .btnrubrique1, .btnrubrique2 {
+	width: 15vw;
+	height: 15vw;
+	cursor: pointer;
+	border-radius:50% ;
+}
+.position-btn{
+position: absolute;
+	left: 83%;
+	top: 104%;
+}
+.position-btn1{
+	position: absolute;
+	left: 83%;
+	top: 204%;
+}
+.position-btn2{
+	position: absolute;
+	left: 83%;
+	top: 304%;
+}
+.menurubrique2, .menurubrique1, .menurubrique {
+	width: 7vw;
+	height: 7vw;
+	position: relative;
+	top:23%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 20;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	font-size: 2vw;
+	z-index: 1;
+	border:1px solid black;
+	border-radius: 50%;
+	transition: 1s all;
+}
+.menurubrique2:hover, .menurubrique1:hover, .menurubrique:hover {
+	box-shadow: inset -4vw 0 0 0
+	black, inset 4vw 0 0 0 black;
+	color: white;
+}
+.btnrubrique.active .enft1, .btnrubrique1.active .enft1, .btnrubrique2.active .enft1 {
+	opacity: 1;
+	top: 100%;
+	transition: all 0.4s 0.1s ease-in-out;
+}
+.btnrubrique.active .enft2, .btnrubrique1.active .enft2, .btnrubrique2.active .enft2 {
+	opacity: 1;
+	left:5%;
+	top: 50%;
+	transition: all 0.4s 0.3s ease-in-out;
+}
+.btnrubrique.active .enft3, .btnrubrique1.active .enft3, .btnrubrique2.active .enft3 {
+	opacity: 1;
+	top: 50%;
+	left: 95%;
+	transition: all 0.4s 0.5s ease-in-out;
+}
+.btnrubrique img, .btnrubrique1 img, .btnrubrique2 img {
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%); 
+	cursor: pointer;
+	transition: all 0.4s 0.1s ease-in-out;
+	opacity: 0;	
+	width: 4vw;
+	height: 4vw;
+}
+/* 1- la page principale ( la premiére page): */
+.pageprincipale  {
+	height: 100vh;
+	width: 93vw;
+	color: black;
+	background: url("nv\ fond\ gris.jpg");
+	background-repeat: no-repeat;
+		/*background-attachment: fixed;*/ 
+	background-size: cover;
+}	
+/* 1-1: le text de présentation  à savoir: le nom, le prénom et portfolio dans la premiére page
+    1-1-1: personnaliser la div neontxt */
+.neontxt {
+	position: absolute;
+	top: 10%;
+	left: 5%;
+	padding: 50px;
+	width: 70%;	
+	height: 40%;
+	text-shadow: /* s'applique sur le texte qui se trouve dans la div neontxt */
+    .1vw 0vw .25vw #f7f6f6, 
+    .125vw 0vw .25vw #f7f4f4, 
+
+    .1vw 0vw  .1vw #f1ecec, 
+    .125vw 0vw  .1vw #fdf9f9, 
+    .15vw 0vw  .1vw #f8f4f4,
+
+    .1vw 0vw   2vw #e9e8e8, 
+    .125vw 0vw   2vw #ebebeb, 
+    .15vw 0vw   2vw #111111, 
+
+    .1vw 0vw   1vw #f3ecec, 
+    .125vw 0vw   1vw #f1f1f1, 
+    .15vw 0vw   5vw #ebe8e8, 
+
+    .1vw 0vw   5vw #eceaea, 
+    .125vw 0vw  20vw #f3efef, 
+    .15vw 0vw  10vw #f1efef;
+}
+@font-face { /* LA police appliquer dans cette div (.neontxt) */
+	font-family: JAZZ;
+	src: url('Jazz\ Music.ttf');
+}
+/* 1-1-2: personnaliser le nom "LAOUAMEN */
+.neontxt h1 {
+	font-size: 5vw;
+	font-family: JAZZ;
+	padding-bottom: 30px;
+    font-weight: 300;
+    color: #f1f1f1e3;
+}
+/* 1-1-3: Le prénom "toufik" */
+.neontxt span {
+	font-family: JAZZ;
+    font-size: 5vw;
+    letter-spacing: 5px;
+    color: #f1f1f1cb;
+	animation: blink 3s infinite;
+}
+/* le mot "portfolio"*/
+.neontxt div {
+	font-family: JAZZ;
+	/* j'ai utiliser vh et vw pour ajuster la taille paraport l'écran (résponsivité)*/
+	font-size: 10vw;
+	color: #f1f1f1cb;
+	padding-left: 55%;
+}
+/* l'animation blink pour toufik et Portfolio dans la rebrique Projets*/
+@keyframes blink {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+		.1vw 0vw .25vw #f7f6f6, 
+    .125vw 0vw .25vw #f7f4f4, 
+
+    .1vw 0vw  .1vw #f1ecec, 
+    .125vw 0vw  .1vw #fdf9f9, 
+    .15vw 0vw  .1vw #f8f4f4,
+
+    .1vw 0vw   2vw #e9e8e8, 
+    .125vw 0vw   2vw #ebebeb, 
+    .15vw 0vw   2vw #111111, 
+
+    .1vw 0vw   1vw #f3ecec, 
+    .125vw 0vw   1vw #f1f1f1, 
+    .15vw 0vw   5vw #ebe8e8, 
+
+    .1vw 0vw   5vw #eceaea, 
+    .125vw 0vw  20vw #f3efef, 
+    .15vw 0vw  10vw #f1efef;  
+}   
+    20%, 24%, 55% {        
+        text-shadow: none;
+}    
+}
+/* les icons de contact */
+ion-icon {
+	color: #111111;
+	display: block;
+	/* j'ai du changer l'unité de height et width en vh et vw pour que les icons reste à leur place quand lécran et plus petit */
+	height: 3vw;
+	width: 3vw;	
+}
+ol li {
+	 margin: 16vh 0;
+	 padding: 0 25%;
+	 cursor: pointer;
+}
+/* le boutton menu pour rentrer au portfolio*/
+.quicontientout {
+	height: 20vw;
+	width: 20vw;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);	
+}
+.boutton{
+	width: 10vw;
+	height: 7.5vw;
+	position: relative;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 20;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	z-index: 1;
+	border:1px solid black;
+	border-radius: 30px;
+	background: black;
+	color: white;
+	font-size: 2vw;
+	box-shadow:
+		0 0 10vw  0vw #f7f7f7,   
+		0 0   2vw  0.4vw #f0efef,
+		inset 0 0 .5vw  .0vw #f4f4f5,
+		inset 0 0 0.2vw  0vw #f7f7f8,
+		inset 0 0 .25vw  0vw #fffcfc;	
+}
+.icon{ /* les icones des autres pages (projets, compétences, projets)*/
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%); 
+	cursor: pointer;
+	transition: all 0.4s 0.1s ease-in-out;
+	opacity: 0;	
+}
+.icon img{ /* gérer la taille des icons du menu principale (résponsivité)*/
+	height: 5vw;
+	width: 5vw;
+}
+/*la je vais animer la classe créer par javascript*/
+.quicontientout.active/* La classe ajouté en cliquant sur le bouton Menu*/ .enf1 {
+/* Quand la classe est activé les icones s'affichent paraport à leur nouvelle position*/
+	opacity: 1;
+	left:90%;
+	top: 22%;
+	transition: all 0.4s 0.5s ease-in-out;
+}
+.quicontientout.active .enf2 {
+	opacity: 1;
+	top:85%; 
+	transition: all 0.3s 0.3s ease-in-out; 
+}
+.quicontientout.active .enf3 {
+	opacity: 1;
+	left:10%;
+	top: 22%;  
+	transition: all 0.2s 0.1s ease-in-out;
+}
+/* pour les cadres avec l'effet morpho*/
+.cadre1 {
+	height: 40vh;
+	width: 30vw;
+	top: 55%;
+	left: 7%;
+	position: relative;
+	z-index: 1;
+	background: inherit; /* cette propriété va permettre au cadre d'hériter la photo du fond*/
+	overflow: hidden;
+	border-radius: 20px;
+}
+.cadre2 {
+	height: 100vh;
+	width: 7vw;
+	position: absolute;
+	top: 0%;
+	left: 93%;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;	
+}
+.cadre1::before { /* Initialiser le block et mettre du blur dans les cadres */
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	inset: 0;
+	filter: blur(10px);
+	margin: -20px;
+}
+.cadre2::before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	inset: 0;
+	filter: blur(10px);
+	margin: -20px;
+}
+/* la page apropos de moi*/
+.cadrepetit { /* concerne les 2 petits cadre en bas */
+	border: 1px solid black;
+	max-width: 25%;
+	overflow: auto;
+	height: 25%;
+	border-radius: 15px;
+	transform:translatex(0%);
+	transition: 1s all;
+	background-color: rgba( 255,255,255,0.3);
+}
+.info2 {
+	position: absolute;
+	top: 145%;
+	left: 3%;
+	padding: 1% 2%;
+}
+.info2 p {
+	font-size: 1.5em;
+}
+.info3 {
+	position: absolute;
+	top: 145%;
+	left: 33%;
+	padding: 1% 2% ;
+}
+.info1 {
+	border: 1px solid black;
+	width: 55%;
+	max-height: 32%;
+	overflow-y: auto;
+	position: absolute;
+	top: 110%;
+	left: 3%;
+	border-radius: 15px;
+	transition: 1s all;
+	padding: 1% 2%;
+	background-color: rgba( 255,255,255,0.3);
+}
+.info4 {
+	position: absolute;
+	top: 140%;
+	left: 65%;
+	width: 30%;
+}
+.cadrepetit:hover {
+	box-shadow: 6px 6px 40px 10px #f1f1f1cb;
+	transform: translatex(-3%);
+}
+.info1:hover {
+	box-shadow: 6px 6px 40px 10px #f1f1f1cb;
+	transform: translatey(-3%);
+}
+.txt {
+	font-size:3vw ;
+}
+.jstxt1 {
+	font-size: 5vw;
+	padding-left: 10%;
+}
+.info4 img {
+	position: relative;
+	left: 80%;
+	cursor: pointer;
+	width: 7vw;
+	height: 7vw;
+}
+/* La rubrique Compétences*/
+/* la position des 3 blocks poue les barres de compétences*/
+.skill{
+	position: absolute;
+	top: 240%;
+	left: 3%;
+	max-height: 80%;
+	display: flex;
+	border: 2px solid black;
+	padding: 1%;
+	border-radius: 10px;
+	z-index: 1;
+	background: inherit;
+	overflow: hidden;	
+}
+.autres {
+	position: absolute;
+	left: 46%;
+	top: 240%;
+}
+.prog {
+	position: absolute;
+	left: 3%;
+	top: 213%;
+}
+.skill::before {
+	content: "";
+	position: absolute;
+	background: inherit;
+	z-index: -1;
+	inset: 0;
+	filter: blur(10px);
+	margin: -20px;
+}
+.skill .name {
+	display: flex;
+	flex-direction:  column;
+	color: white;
+	font-size: 2vw;
+	margin-right: 2vw;
+}
+.name span {
+	margin: 15px 0;
+	box-shadow: inset 9.91px 9.91px 15px #D9DADE,
+	 inset -9.91px -9.91px 15px #FFFFFF;
+	text-align: center;
+	color: black;
+    border-radius: 10px;
+	cursor: pointer;
+	width: 10vw;
+}
+/* les propriétes pour la taille, la longeur des barres en transparent */
+.bar, .bar1, .bar2 {
+	width: 25vw;
+	height: 2vh;	
+	box-shadow: inset 9.91px 9.91px 15px #D9DADE,
+	 inset -9.91px -9.91px 15px #FFFFFF;
+	border-radius: 20px;
+	
+}
+.bar_remplie {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+/* les propriétes pour les barres qui affichent le pourcentage de mes compétences */
+.bar .progression, .bar1 .progression, .bar2 .progression {
+	background-color: black;
+	height: 100%;
+	border-radius: 20px;
+}
+/* les enfants de chaques div.bar(1,2)*/
+.bar:nth-child(1) .progression {
+	width: 70%;
+}
+.bar:nth-child(2) .progression {
+	width: 50%;
+}
+.bar:nth-child(3) .progression {
+	width: 20%;
+}
+.bar:nth-child(4) .progression {
+	width: 10%;
+}
+.bar1:nth-child(1) .progression {
+	width: 65%;
+}
+.bar1:nth-child(2) .progression {
+	width: 40%;
+}
+.bar2:nth-child(1) .progression {
+	width: 50%;
+}
+.bar2:nth-child(2) .progression {
+	width: 50%;
+}
+.bar2:nth-child(3) .progression {
+	width: 40%;
+}
+.bar2:nth-child(4) .progression {
+	width: 65%;
+} 
+/* la rubrique projets*/
+	/* la position des cartes*/
+.position-carte {
+	position: absolute;
+	height: 40%;
+	width: 35%;
+	top: 325%;
+	left: 3%;
+}
+.position-carte1{
+	position: absolute;
+	height: 40%;
+	width: 35%;
+	top: 325%;
+	left: 43%;
+}
+.carte {
+	transform-style: preserve-3d; /* garder l'univer 3d*/
+	transition: transform 0.8s cubic-bezier(0.86,0,0.07,1);
+	color: white;
+	font-weight: bold;
+	perspective: 2000px;
+	perspective-origin: top;
+}
+.carte:hover  {
+	transform: rotateY(180deg);
+}
+ .cartedevant, .cartederriere {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%; 
+	 padding: 10%;
+	 backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;/* ces 2 propriétes vont me permettre de cacher le derriere de la carte*/
+	border-radius: 10px;
+	border: 1px solid black;
+ }
+.cartedevant{
+	 background-color: rgba( 255,255,255,0.3);
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 text-shadow:
+    .1vw 0vw .25vw #f7f6f6, 
+    .125vw 0vw .25vw #f7f4f4, 
+
+    .1vw 0vw  .1vw #f1ecec, 
+    .125vw 0vw  .1vw #fdf9f9, 
+    .15vw 0vw  .1vw #f8f4f4,
+
+    .1vw 0vw   2vw #e9e8e8, 
+    .125vw 0vw   2vw #ebebeb, 
+    .15vw 0vw   2vw #111111, 
+
+    .1vw 0vw   1vw #f3ecec, 
+    .125vw 0vw   1vw #f1f1f1, 
+    .15vw 0vw   5vw #ebe8e8, 
+
+    .1vw 0vw   5vw #eceaea, 
+    .125vw 0vw  20vw #f3efef, 
+    .15vw 0vw  10vw #f1efef;
+}
+.cartederriere {
+	transform: rotateY(180deg);
+}
+/* le projet de portfolio */
+.photobackground { /* la photo de derriére */
+	background: 
+	url('htmlcssjs.png');
+	background-size: 100% 100%;
+}
+.photobackground a { /* le lien pour accéder au potfolio */
+	position: absolute;
+	left: 31%;
+	bottom: 5%;
+	color: #111111;
+	font-size: 2vw;
+}
+.rapport {
+	position: absolute;
+	left:8%;
+	bottom: 10%;
+	font-size: 2vw;
+	color: #111111;
+}
+/* les photos qui se trouvent dans la carte derriére du projet d'asservissement*/
+.photoprojet2{
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	left: 2%;
+	top: 2%;
+	background: url('myviz.jpg');
+	background-size: 100% 100%;
+	border-radius: 50%;
+}
+.photoprojet3{
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	height: 50%;
+	width: 50%;
+	left: 50%;
+	top: 48%;
+	background: url('carte arduino.jpg');
+	background-size: 100% 100%;
+	border-radius: 50%;
+}
+/* animer le titre d'une carte projet avec l'animation utilisé pour animer mon prénom*/
+.position-carte .cartedevant h1 {
+	font-size: 6vw;
+	animation: blink 3s infinite;
+}
